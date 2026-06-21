@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atomic Google</title>
+    <meta name="title" content="Atomic Google|Atom's Search Engine|Atom Guy">
+    <meta name="description" content="Atomic Google is a keyword-based search platform by Atom Guy. Simply search the keyword mentioned in a Reel to instantly access the featured game, product, website, AI prompt, or exclusive link shared by the creator all in one place.">
+    <meta name="keywords" content="Atomic Google, Search Engine, Link Hub, Instagram Links, Reel Links, Gaming Links, Product Links, AI Prompts, Website Directory, Free Resources, Viral Finds, Tech Tools, Digital Content, Link Sharing, Creator Tools, Search Platform, Gaming Resources, Online Discovery, Atom Guy">
+    <meta name="author" content="Atom Guy">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atomguy.in/atomicgoogle/">
+    <meta property="og:site_name" content="Atomic Google">
+    <meta property="og:title" content="Atomic Google| Atom's Search Engine">
+    <meta property="og:description" content="keyword-based search platform by Atom Guy. Simply search the keyword mentioned in a Reel to instantly access the featured game, product, website, AI prompt, or exclusive link shared by the creator all in one place">
+    <meta property="og:image" content="https://atomguy.in/atomicgoogle/images/social-cover.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Atomic Google| Atom's Search Engine | Atom Guy">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="canonical" href="https://atomguy.in/atomicgoogle/">
+
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="preload" href="css/neo-styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" as="style">
+
+    <link rel="stylesheet" href="css/neo-styles.css">
+    <link rel="stylesheet" href="css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/leaflet.css">
+
+    <script src="js/leaflet.js"></script>
+
+    <script type="application/ld+json">
+        { "@context": "https://schema.org", "@type": "Person", "name": "Marjo Ballabani", "url": "https://marjoballabani.me", "jobTitle": "Senior Software Engineer", "worksFor": { "@type": "Organization", "name": "Unicepta" }, "address": { "@type": "PostalAddress",
+        "addressLocality": "Munich", "addressRegion": "Bavaria", "addressCountry": "Germany" }, "alumniOf": { "@type": "EducationalOrganization", "name": "University of Tirana" }, "knowsAbout": ["Software Engineering", "Full-Stack Development", "Cloud
+        Computing", "Distributed Systems", "Microservices", "Node.js", "React", "Python", "Google Cloud", "AWS", "Docker", "Kubernetes"], "sameAs": [ "https://github.com/marjoballabani", "https://linkedin.com/in/marjoballabani", "https://stackoverflow.com/users/7563517/marjo-ballabani"
+        ] }
+    </script>
+    <style>
+        /* -------------------------------------------
+           Atomic Search Hero Layout 
+        -------------------------------------------- */
+        .hero {
+            position: relative; /* Added to contain absolute SVGs */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 85vh;
+            width: 100%;
+            padding: 2rem 1rem;
+            box-sizing: border-box;
+            background-color: var(--bg);
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            overflow: hidden;
+        }
+
+        .atomic-search-container {
+            position: relative;
+            z-index: 10; /* Ensures the search box stays on top of SVGs */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem; 
+            width: 100%;
+            max-width: 850px; 
+            margin: 0 auto;
+        }
+
+        .atomic-logo-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; /* Let the wrapper take the full container width */
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .atomic-logo {
+            display: block;
+            width: 100%; /* Fill the wrapper up to the max-width */
+            max-width: 300px; /* Adjust this value if you want it slightly bigger or smaller on desktop */
+            height: auto;
+            object-fit: contain;
+        }
+
+        .atomic-search-bar {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 80px; 
+            background: var(--white);
+            border: 5px solid var(--border); 
+            border-radius: 12px;
+            box-shadow: 8px 8px 0 var(--border);
+            overflow: hidden;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .atomic-search-bar:focus-within {
+            transform: translate(-3px, -3px);
+            box-shadow: 11px 11px 0 var(--border);
+        }
+
+        .search-icon-box {
+            width: 80px; 
+            height: 100%;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 5px solid var(--border);
+            font-size: 1.8rem; 
+            color: var(--text);
+            flex-shrink: 0;
+        }
+
+        .search-input {
+            flex: 1;
+            height: 100%;
+            border: none;
+            background: transparent;
+            padding: 0 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem; 
+            font-weight: 600;
+            color: var(--text);
+            outline: none;
+            width: 100%;
+        }
+
+        .search-input::placeholder {
+            color: var(--text);
+            opacity: 0.4;
+            font-weight: 500;
+        }
+
+        .search-input::-webkit-input-placeholder { color: var(--text); opacity: 0.4; }
+        .search-input::-moz-placeholder { color: var(--text); opacity: 0.4; }
+
+        .atomic-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn-atomic {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem; 
+            color: var(--text);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1.25rem; 
+            border: 5px solid var(--border); 
+            border-radius: 10px;
+            box-shadow: 6px 6px 0 var(--border);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            flex: 1;
+            max-width: 300px; 
+            white-space: nowrap;
+        }
+
+        .btn-yellow { background: var(--yellow); }
+        .btn-cyan { background: var(--cyan); }
+
+        .btn-atomic:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--border);
+        }
+
+        .btn-atomic:active {
+            transform: translate(6px, 6px);
+            box-shadow: 0 0 0 var(--border);
+        }
+
+        /* -------------------------------------------
+           NEW: Floating Background SVGs
+        -------------------------------------------- */
+        .hero-decorations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Let clicks pass through */
+            z-index: 1; /* Sits behind the search container (z-index: 10) */
+            overflow: hidden;
+        }
+
+        .deco-code, .deco-terminal, .deco-floppy {
+            position: absolute;
+            opacity: 0.75;
+        }
+
+        .deco-code {
+            top: 15%;
+            left: 12%;
+            animation: floatSvg1 6s ease-in-out infinite;
+        }
+
+        .deco-terminal {
+            top: 25%;
+            right: 12%;
+            animation: floatSvg2 7s ease-in-out infinite reverse;
+        }
+
+        .deco-floppy {
+            bottom: 15%;
+            left: 20%;
+            animation: floatSvg3 8s ease-in-out infinite;
+        }
+
+        @keyframes floatSvg1 {
+            0%, 100% { transform: translateY(0) rotate(-10deg); }
+            50% { transform: translateY(-20px) rotate(-5deg); }
+        }
+
+        @keyframes floatSvg2 {
+            0%, 100% { transform: translateY(0) rotate(15deg); }
+            50% { transform: translateY(-25px) rotate(20deg); }
+        }
+
+        @keyframes floatSvg3 {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-15px) rotate(-10deg); }
+        }
+
+        /* -------------------------------------------
+           Search Results Container
+        -------------------------------------------- */
+        .search-results-container {
+            width: 100%;
+            max-width: 700px;
+            margin-top: 1rem;
+            display: none; 
+            text-align: left;
+        }
+
+        /* -------------------------------------------
+           Retro Loading Dialog Window
+        -------------------------------------------- */
+        .retro-loader-window {
+            border: 5px solid var(--border);
+            border-radius: 10px;
+            background: #fdf6e3; 
+            box-shadow: 10px 10px 0 var(--border);
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: 'Space Grotesk', sans-serif;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .retro-header {
+            background: #FFD93D; 
+            color: var(--text);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid var(--border);
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .retro-controls {
+            display: flex;
+            gap: 12px;
+            font-size: 1.2rem;
+        }
+
+        .retro-body {
+            padding: 2.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .retro-body::after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 20px;
+            bottom: 20px;
+            width: 15px;
+            background: repeating-linear-gradient(
+                -45deg,
+                var(--border),
+                var(--border) 2px,
+                transparent 2px,
+                transparent 8px
+            );
+            opacity: 0.5;
+        }
+
+        .retro-bar-container {
+            border: 3px solid var(--border);
+            border-radius: 6px;
+            width: 90%;
+            height: 38px;
+            padding: 4px;
+            display: flex;
+            gap: 4px;
+            background: #fff;
+            margin-bottom: 2rem;
+            margin-right: 25px; 
+        }
+
+        .retro-segment {
+            background: #FFD93D;
+            flex: 1;
+            opacity: 0; 
+            border-radius: 2px;
+        }
+
+        .retro-cancel {
+            border: 3px solid var(--border);
+            background: #fdf6e3;
+            padding: 0.5rem 2rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 4px 4px 0 var(--border);
+            transition: all 0.1s ease;
+            margin-right: 25px;
+        }
+
+        .retro-cancel:active {
+            box-shadow: 0 0 0 var(--border);
+            transform: translate(3px, 3px);
+        }
+
+        /* -------------------------------------------
+           Attractive Search Result Card
+        -------------------------------------------- */
+        .attractive-card {
+            background: #fff;
+            border: 5px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 10px 10px 0 var(--border);
+            position: relative;
+            animation: slideUpFade 0.4s ease forwards;
+            background-image: radial-gradient(rgba(0,0,0,0.1) 2px, transparent 2px);
+            background-size: 20px 20px;
+        }
+
+        .attractive-card-inner {
+            background: #fff;
+            border: 3px solid var(--border);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .card-badges {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .card-badge {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            border: 2px solid var(--border);
+        }
+
+        .badge-verified { background: var(--yellow); }
+        .badge-error { background: #ff5555; color: white; }
+        .badge-outline { background: transparent; border-style: dashed; }
+
+        .attractive-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+            text-transform: uppercase;
+        }
+
+        .attractive-card p {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .card-metadata {
+            display: flex;
+            gap: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-top: 2px dashed var(--border);
+            padding-top: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-launch {
+            width: 100%;
+            max-width: none;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            padding: 1.2rem;
+        }
+
+        /* -------------------------------------------
+           Modal Overlay Styles 
+        -------------------------------------------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none; 
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: var(--bg);
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border: 5px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 12px 12px 0 var(--border);
+            text-align: center;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .modal-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; margin-top: 0; margin-bottom: 1rem; color: var(--text);}
+        .modal-content p { font-family: 'Space Mono', monospace; font-size: 1.1rem; margin-bottom: 2rem; color: var(--text); font-weight: 600; line-height: 1.5;}
+        .modal-buttons { display: flex; flex-direction: column; gap: 1rem; }
+        .modal-buttons .btn-atomic { width: 100%; max-width: 100%; text-decoration: none; }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* -------------------------------------------
+           Promo Placements (Responsive Edge-to-Edge)
+        -------------------------------------------- */
+        .promo-wrapper {
+            display: contents; 
+        }
+
+        /* Slide Transition for Images */
+        .promo-img-desktop, .promo-img-mobile {
+            transition: opacity 0.6s ease-in-out;
+            opacity: 1;
+        }
+
+        .promo-fade-out {
+            opacity: 0;
+        }
+
+        /* 1. DEFAULT — 720p monitors & laptops: mobile/horizontal layout */
+        .promo-wrapper {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 700px;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 0 1rem;
+            box-sizing: border-box;
+            z-index: 15;
+        }
+
+        .promo-banner {
+            position: static;
+            transform: none;
+            width: 100%;
+            height: auto; 
+            aspect-ratio: 1000 / 360; 
+            border: 4px solid var(--border);
+            box-shadow: 6px 6px 0 var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            background-color: var(--white);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Clicks pass through images to the <a> wrapper */
+        .promo-banner img {
+            pointer-events: none;
+        }
+
+        /* On 720p default, show the mobile (horizontal) image */
+        .promo-img-desktop { display: none; }
+
+        .promo-img-mobile {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+
+        /* 2. STANDARD DESKTOP (1080p+): switch to fixed vertical side banners */
+        @media (min-width: 1400px) and (min-height: 800px) {
+            .promo-wrapper {
+                display: contents;
+            }
+
+            .promo-banner {
+                position: fixed;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 120px;
+                height: 320px;
+                aspect-ratio: auto; 
+                border: 5px solid var(--border);
+                box-shadow: 10px 10px 0 var(--border);
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .left-promo  { left: 2vw; }
+            .right-promo { right: 2vw; }
+
+            .promo-img-desktop {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .promo-img-mobile { display: none; }
+        }
+
+        /* 3. LARGE DESKTOP (1920x1080) */
+        @media (min-width: 1600px) and (min-height: 900px) {
+            .promo-banner {
+                width: 180px;
+                height: 500px;
+            }
+        }
+
+        /* 4. ULTRAWIDE & 2K/4K */
+        @media (min-width: 2400px) and (min-height: 1300px) {
+            .promo-banner {
+                width: 360px;
+                height: 1000px;
+            }
+        }
+
+        /* -------------------------------------------
+           Fully Optimized Responsive Queries 
+        -------------------------------------------- */
+
+        /* 5. TABLET & MOBILE SNAP (Below 1100px) */
+        @media (max-width: 1100px) {
+            .promo-wrapper {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 700px;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                padding: 0 1rem;
+                box-sizing: border-box;
+                z-index: 15;
+            }
+
+            .promo-banner {
+                position: static;
+                transform: none;
+                width: 100%;
+                height: auto; 
+                aspect-ratio: 1000 / 360; 
+                box-shadow: 6px 6px 0 var(--border);
+                border-width: 4px;
+            }
+
+            .promo-img-desktop { display: none; }
+
+            .promo-img-mobile {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: contain; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .atomic-search-container { max-width: 100%; padding: 0 1rem; }
+            .atomic-search-bar { height: 65px; }
+            .search-icon-box { width: 65px; font-size: 1.5rem; }
+            .search-input { font-size: 1.25rem; }
+            .attractive-card h3 { font-size: 1.8rem; }
+            .card-metadata { flex-direction: column; gap: 10px; }
+            
+            .deco-floppy { display: none; }
+            .deco-code { left: -5%; }
+            .deco-terminal { right: -5%; }
+        }
+
+        @media (max-width: 580px) {
+            .hero { min-height: 75vh; padding: 1.5rem 1rem; }
+            .atomic-search-container { gap: 1.5rem; }
+            .atomic-logo { max-width: 320px; }
+            
+            .hero-decorations { display: none; }
+            
+            .atomic-search-bar { height: 56px; border-width: 4px; box-shadow: 5px 5px 0 var(--border); }
+            .search-icon-box { width: 56px; border-right-width: 4px; font-size: 1.2rem; }
+            .search-input { font-size: 1.1rem; padding: 0 1rem; }
+            
+            .atomic-buttons { flex-direction: column; align-items: center; gap: 1rem; }
+            .btn-atomic { width: 100%; max-width: 100%; padding: 0.85rem 1.25rem; font-size: 1.1rem; border-width: 4px; box-shadow: 5px 5px 0 var(--border); }
+            
+            .retro-loader-window { border-width: 4px; box-shadow: 6px 6px 0 var(--border); }
+            .retro-header { font-size: 1.1rem; padding: 10px 12px; border-bottom-width: 4px; }
+            .retro-body { padding: 1.5rem 1rem; }
+            .retro-bar-container { height: 30px; margin-bottom: 1.5rem; margin-right: 15px; border-width: 2px; }
+            .retro-cancel { font-size: 1rem; padding: 0.4rem 1.5rem; margin-right: 15px; }
+            
+            .attractive-card { padding: 0.75rem; border-width: 4px; box-shadow: 6px 6px 0 var(--border); }
+            .attractive-card-inner { padding: 1.25rem; border-width: 2px; }
+            .attractive-card h3 { font-size: 1.5rem; }
+            .attractive-card p { font-size: 1rem; }
+            .btn-launch { font-size: 1rem; padding: 1rem; }
+            
+            .modal-content { padding: 2rem 1.5rem; border-width: 4px; box-shadow: 8px 8px 0 var(--border); }
+            .modal-content h3 { font-size: 1.6rem; }
+            .modal-content p { font-size: 1rem; }
+
+            .promo-wrapper { margin-top: 1.5rem; }
+            .promo-banner { height: auto; aspect-ratio: 1000 / 360; box-shadow: 5px 5px 0 var(--border); } 
+        }
+
+        /* YouTube Ribbon Placement & Sizing */
+        .yt-ribbon {
+            position: fixed;
+            z-index: 999;
+            top: 30%;
+            right: -3px;
+            transform: translateY(-50%) scale(0.85); 
+            transform-origin: right center;
+        }
+
+        .yt-ribbon svg {
+            display: block;
+            filter: drop-shadow(-6px 6px 0 #000);
+        }
+
+        @media (max-width: 580px) {
+            .yt-ribbon {
+                transform: translateY(-50%) scale(0.60); 
+            }
+
+            .atomic-logo { max-width: 280px; width: 90%; } 
+        }
+    </style>
+</head>
+
+<body data-theme="light">
+<div id="awwwards" class="yt-ribbon">
+    <a href="https://www.youtube.com/@AtomGuy" target="_blank" style="text-decoration: none;">
+        <svg width="60" height="220" viewBox="0 0 60 220">
+            <rect x="0" y="0" width="60" height="220" fill="#fffdf5" stroke="#000" stroke-width="4"></rect>
+            
+            <rect x="10" y="15" width="40" height="28" rx="6" fill="#ff0000" stroke="#000" stroke-width="3"></rect>
+            <polygon points="24,21 38,29 24,37" fill="#fff" stroke="#000" stroke-width="2" stroke-linejoin="round"></polygon>
+            
+            <text transform="rotate(-90)" x="-205" y="42" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="26" fill="#000" letter-spacing="2">ATOM GUY</text>
+        </svg>
+    </a>
+</div>
+
+    <div class="loader-overlay">
+        <div class="loader-shapes">
+            <div class="loader-shape-svg loader-shape-1">
+               
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M86 6H14C9.58172 6 6 9.58172 6 14V86C6 90.4183 9.58172 94 14 94H86C90.4183 94 94 90.4183 94 86V14C94 9.58172 90.4183 6 86 6Z" fill="#66D9EF" stroke="black" stroke-width="4"/>
+<path d="M83 3H11C6.58172 3 3 6.58172 3 11V83C3 87.4183 6.58172 91 11 91H83C87.4183 91 91 87.4183 91 83V11C91 6.58172 87.4183 3 83 3Z" fill="#66D9EF" stroke="black" stroke-width="4"/>
+<path d="M56.625 36.3137V26.125C56.625 24.8187 55.5563 23.75 54.25 23.75H44.75C43.4437 23.75 42.375 24.8187 42.375 26.125V36.3137C42.375 36.6225 42.4937 36.9312 42.7312 37.145L48.6687 43.0825C49.1437 43.5575 49.88 43.5575 50.355 43.0825L56.2925 37.145C56.5062 36.9312 56.625 36.6462 56.625 36.3137ZM38.3137 40.375H28.125C26.8187 40.375 25.75 41.4437 25.75 42.75V52.25C25.75 53.5563 26.8187 54.625 28.125 54.625H38.3137C38.6225 54.625 38.9312 54.5063 39.145 54.2688L45.0825 48.3313C45.5575 47.8563 45.5575 47.12 45.0825 46.645L39.145 40.7075C39.0361 40.5989 38.9062 40.5134 38.7634 40.4562C38.6205 40.3991 38.4676 40.3715 38.3137 40.375ZM42.375 58.6862V68.875C42.375 70.1813 43.4437 71.25 44.75 71.25H54.25C55.5563 71.25 56.625 70.1813 56.625 68.875V58.6862C56.6269 58.5305 56.5962 58.3761 56.5348 58.2329C56.4735 58.0898 56.3828 57.961 56.2688 57.855L50.3313 51.9175C49.8563 51.4425 49.12 51.4425 48.645 51.9175L42.7075 57.855C42.4938 58.0688 42.375 58.3537 42.375 58.6862ZM59.8313 40.7312L53.8938 46.6687C53.4188 47.1437 53.4188 47.88 53.8938 48.355L59.8313 54.2925C60.045 54.5062 60.3538 54.6488 60.6625 54.6488H70.875C72.1813 54.6488 73.25 53.58 73.25 52.2738V42.7738C73.25 41.4675 72.1813 40.3988 70.875 40.3988H60.6862C60.528 40.3872 60.3692 40.4111 60.2213 40.4686C60.0734 40.5261 59.9401 40.6158 59.8313 40.7312Z" fill="black"/>
+</svg>
+
+            </div>
+            <div class="loader-shape-svg loader-shape-2">
+
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M86 6H14C9.58172 6 6 9.58172 6 14V86C6 90.4183 9.58172 94 14 94H86C90.4183 94 94 90.4183 94 86V14C94 9.58172 90.4183 6 86 6Z" fill="#FFD93D" stroke="black" stroke-width="4"/>
+<path d="M83 3H11C6.58172 3 3 6.58172 3 11V83C3 87.4183 6.58172 91 11 91H83C87.4183 91 91 87.4183 91 83V11C91 6.58172 87.4183 3 83 3Z" fill="#FFD93D" stroke="black" stroke-width="4"/>
+<path d="M45.1666 22.833H28.2499C26.9208 22.833 25.8333 23.9205 25.8333 25.2497V42.1663C25.8333 43.4955 26.9208 44.583 28.2499 44.583H45.1666C46.4958 44.583 47.5833 43.4955 47.5833 42.1663V25.2497C47.5833 23.9205 46.4958 22.833 45.1666 22.833ZM42.7499 39.7497H30.6666V27.6663H42.7499V39.7497ZM63.2916 49.4163C57.2983 49.4163 52.4166 54.298 52.4166 60.2913C52.4166 66.2847 57.2983 71.1663 63.2916 71.1663C69.2849 71.1663 74.1666 66.2847 74.1666 60.2913C74.1666 54.298 69.2849 49.4163 63.2916 49.4163ZM63.2916 66.333C61.6892 66.333 60.1525 65.6965 59.0195 64.5634C57.8865 63.4304 57.2499 61.8937 57.2499 60.2913C57.2499 58.689 57.8865 57.1523 59.0195 56.0192C60.1525 54.8862 61.6892 54.2497 63.2916 54.2497C64.8939 54.2497 66.4307 54.8862 67.5637 56.0192C68.6967 57.1523 69.3333 58.689 69.3333 60.2913C69.3333 61.8937 68.6967 63.4304 67.5637 64.5634C66.4307 65.6965 64.8939 66.333 63.2916 66.333ZM44.0549 49.513L36.7083 56.8838L29.3616 49.513L25.9299 52.9447L33.3008 60.2913L25.9299 67.638L29.3616 71.0697L36.7083 63.6988L44.0549 71.0697L47.4866 67.638L40.1158 60.2913L47.4866 52.9447L44.0549 49.513ZM65.3941 24.0413C64.5241 22.543 62.0591 22.543 61.1891 24.0413L51.5224 40.958C51.3109 41.3243 51.1993 41.7397 51.1986 42.1627C51.198 42.5857 51.3084 43.0014 51.5188 43.3684C51.7291 43.7353 52.0322 44.0407 52.3975 44.2538C52.7629 44.4669 53.1778 44.5805 53.6008 44.583H72.9341C73.8041 44.583 74.6016 44.1238 75.0124 43.3747C75.4474 42.6255 75.4474 41.7072 75.0124 40.958L65.3458 24.0413H65.3941ZM57.7816 39.7497L63.2916 30.1313L68.8016 39.7497H57.8058H57.7816Z" fill="black"/>
+</svg>
+            </div>
+            <div class="loader-shape-svg loader-shape-3">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"></rect>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"></rect>
+                    <rect x="20" y="20" width="60" height="60" rx="3" fill="#ffd93d" stroke="#000" stroke-width="4"></rect>
+                    <rect x="30" y="20" width="40" height="20" fill="#66d9ef" stroke="#000" stroke-width="3"></rect>
+                    <rect x="35" y="55" width="30" height="15" rx="2" fill="#000"></rect>
+                    <circle cx="50" cy="35" r="3" fill="#000"></circle>
+                </svg>
+            </div>
+        </div>
+        <div class="loader-wrapper">
+            <div class="loader-letter">A</div>
+            <div class="loader-letter">G</div>
+        </div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="progress-bar-container">
+            <div class="progress-bar-fill"></div>
+            <div class="progress-checkpoints">
+                
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="#" class="nav-brand">AG</a>
+                <div class="nav-right">
+        
+                    <a href="https://atomguygg.github.io/atomguy/" target="_blank" class="nav-lazyfire" title="Official Website">
+                        <img src="images/badge-red.png" alt="LazyFire" class="lazyfire-logo" width="28" height="28">
+                        <span class="nav-lazyfire-text">Atom guy</span>
+                    </a>
+                    <a href="https://www.instagram.com/ig_atomguy/" target="_blank" class="nav-lazyfire nav-hypergrep" title="Hypergrep - Code Intelligence">
+                        <span class="nav-lazyfire-text">Instagram</span>
+                    </a>
+                    <a href="https://wa.link/4cazcy" class="nav-cta">Get in Touch!</a>
+                </div>
+            </div>
+        </nav>
+
+        <section class="hero" id="hero">
+            <div class="hero-decorations">
+                <div class="deco-code">
+
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M86 6H14C9.58172 6 6 9.58172 6 14V86C6 90.4183 9.58172 94 14 94H86C90.4183 94 94 90.4183 94 86V14C94 9.58172 90.4183 6 86 6Z" fill="#66D9EF" stroke="black" stroke-width="4"/>
+<path d="M83 3H11C6.58172 3 3 6.58172 3 11V83C3 87.4183 6.58172 91 11 91H83C87.4183 91 91 87.4183 91 83V11C91 6.58172 87.4183 3 83 3Z" fill="#66D9EF" stroke="black" stroke-width="4"/>
+<path d="M56.625 36.3137V26.125C56.625 24.8187 55.5563 23.75 54.25 23.75H44.75C43.4437 23.75 42.375 24.8187 42.375 26.125V36.3137C42.375 36.6225 42.4937 36.9312 42.7312 37.145L48.6687 43.0825C49.1437 43.5575 49.88 43.5575 50.355 43.0825L56.2925 37.145C56.5062 36.9312 56.625 36.6462 56.625 36.3137ZM38.3137 40.375H28.125C26.8187 40.375 25.75 41.4437 25.75 42.75V52.25C25.75 53.5563 26.8187 54.625 28.125 54.625H38.3137C38.6225 54.625 38.9312 54.5063 39.145 54.2688L45.0825 48.3313C45.5575 47.8563 45.5575 47.12 45.0825 46.645L39.145 40.7075C39.0361 40.5989 38.9062 40.5134 38.7634 40.4562C38.6205 40.3991 38.4676 40.3715 38.3137 40.375ZM42.375 58.6862V68.875C42.375 70.1813 43.4437 71.25 44.75 71.25H54.25C55.5563 71.25 56.625 70.1813 56.625 68.875V58.6862C56.6269 58.5305 56.5962 58.3761 56.5348 58.2329C56.4735 58.0898 56.3828 57.961 56.2688 57.855L50.3313 51.9175C49.8563 51.4425 49.12 51.4425 48.645 51.9175L42.7075 57.855C42.4938 58.0688 42.375 58.3537 42.375 58.6862ZM59.8313 40.7312L53.8938 46.6687C53.4188 47.1437 53.4188 47.88 53.8938 48.355L59.8313 54.2925C60.045 54.5062 60.3538 54.6488 60.6625 54.6488H70.875C72.1813 54.6488 73.25 53.58 73.25 52.2738V42.7738C73.25 41.4675 72.1813 40.3988 70.875 40.3988H60.6862C60.528 40.3872 60.3692 40.4111 60.2213 40.4686C60.0734 40.5261 59.9401 40.6158 59.8313 40.7312Z" fill="black"/>
+</svg>
+
+                </div>
+                <div class="deco-terminal">
+                   
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M86 6H14C9.58172 6 6 9.58172 6 14V86C6 90.4183 9.58172 94 14 94H86C90.4183 94 94 90.4183 94 86V14C94 9.58172 90.4183 6 86 6Z" fill="#FFD93D" stroke="black" stroke-width="4"/>
+<path d="M83 3H11C6.58172 3 3 6.58172 3 11V83C3 87.4183 6.58172 91 11 91H83C87.4183 91 91 87.4183 91 83V11C91 6.58172 87.4183 3 83 3Z" fill="#FFD93D" stroke="black" stroke-width="4"/>
+<path d="M45.1666 22.833H28.2499C26.9208 22.833 25.8333 23.9205 25.8333 25.2497V42.1663C25.8333 43.4955 26.9208 44.583 28.2499 44.583H45.1666C46.4958 44.583 47.5833 43.4955 47.5833 42.1663V25.2497C47.5833 23.9205 46.4958 22.833 45.1666 22.833ZM42.7499 39.7497H30.6666V27.6663H42.7499V39.7497ZM63.2916 49.4163C57.2983 49.4163 52.4166 54.298 52.4166 60.2913C52.4166 66.2847 57.2983 71.1663 63.2916 71.1663C69.2849 71.1663 74.1666 66.2847 74.1666 60.2913C74.1666 54.298 69.2849 49.4163 63.2916 49.4163ZM63.2916 66.333C61.6892 66.333 60.1525 65.6965 59.0195 64.5634C57.8865 63.4304 57.2499 61.8937 57.2499 60.2913C57.2499 58.689 57.8865 57.1523 59.0195 56.0192C60.1525 54.8862 61.6892 54.2497 63.2916 54.2497C64.8939 54.2497 66.4307 54.8862 67.5637 56.0192C68.6967 57.1523 69.3333 58.689 69.3333 60.2913C69.3333 61.8937 68.6967 63.4304 67.5637 64.5634C66.4307 65.6965 64.8939 66.333 63.2916 66.333ZM44.0549 49.513L36.7083 56.8838L29.3616 49.513L25.9299 52.9447L33.3008 60.2913L25.9299 67.638L29.3616 71.0697L36.7083 63.6988L44.0549 71.0697L47.4866 67.638L40.1158 60.2913L47.4866 52.9447L44.0549 49.513ZM65.3941 24.0413C64.5241 22.543 62.0591 22.543 61.1891 24.0413L51.5224 40.958C51.3109 41.3243 51.1993 41.7397 51.1986 42.1627C51.198 42.5857 51.3084 43.0014 51.5188 43.3684C51.7291 43.7353 52.0322 44.0407 52.3975 44.2538C52.7629 44.4669 53.1778 44.5805 53.6008 44.583H72.9341C73.8041 44.583 74.6016 44.1238 75.0124 43.3747C75.4474 42.6255 75.4474 41.7072 75.0124 40.958L65.3458 24.0413H65.3941ZM57.7816 39.7497L63.2916 30.1313L68.8016 39.7497H57.8058H57.7816Z" fill="black"/>
+</svg>
+                </div>
+                <div class="deco-floppy">
+                    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="6" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"></rect>
+                        <rect x="3" y="3" width="88" height="88" rx="8" fill="#a8e6cf" stroke="#000" stroke-width="4"></rect>
+                        <rect x="20" y="20" width="60" height="60" rx="3" fill="#ffd93d" stroke="#000" stroke-width="4"></rect>
+                        <rect x="30" y="20" width="40" height="20" fill="#66d9ef" stroke="#000" stroke-width="3"></rect>
+                        <rect x="35" y="55" width="30" height="15" rx="2" fill="#000"></rect>
+                        <circle cx="50" cy="35" r="3" fill="#000"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="atomic-search-container">
+                <div class="atomic-logo-wrapper">
+                    <img src="images/atomic.png" alt="Atomic Google" class="atomic-logo" width="300" height="auto">
+                </div>
+                
+                <div class="atomic-search-bar">
+                    <div class="search-icon-box">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" class="search-input" placeholder="Enter the TAG in Reel" spellcheck="false">
+                </div>
+
+                <div class="atomic-buttons">
+                    <button class="btn-atomic btn-yellow" id="btn-search">
+                        <i class="fas fa-search"></i> Atomic Search
+                    </button>
+                    <button class="btn-atomic btn-cyan" id="btn-lucky">
+                        I'm feeling lucky <i class="fas fa-globe"></i>
+                    </button>
+                </div>
+
+                <div id="search-results" class="search-results-container"></div>
+            </div>
+
+            <div class="promo-wrapper">
+                
+                <a href="#" class="promo-banner left-promo" id="left-promo-link" target="_blank" title="Featured Content">
+                    <img src="" alt="Featured" class="promo-img-desktop" id="left-promo-desktop">
+                    <img src="" alt="Featured" class="promo-img-mobile" id="left-promo-mobile">
+                </a>
+                
+                <a href="#" class="promo-banner right-promo" id="right-promo-link" target="_blank" title="Featured Content">
+                    <img src="" alt="Featured" class="promo-img-desktop" id="right-promo-desktop">
+                    <img src="" alt="Featured" class="promo-img-mobile" id="right-promo-mobile">
+                </a>
+
+            </div>
+            </section>
+
+        <footer class="footer">
+            <div class="footer-compact">
+                <div class="footer-main">
+                    <div class="footer-brand-compact">
+                        <strong>ATOMIC GOOGLE</strong>
+                        <span>ATOM'S SEARCH ENGINE</span>
+                    </div>
+                    <div class="footer-nav-compact">
+                        <a href="https://atomguygg.github.io/atomguy/">Home</a>
+                        <a href="https://atomguygg.github.io/atomguy/socials.html">About</a>
+                        <a href="#experience">Atom Labs</a>
+                        <a href="https://atomguygg.github.io/atomguy/gta6/gta6.html">GTA 6</a>
+                    </div>
+                    <div class="footer-social-compact">
+                       
+                    </div>
+                </div>
+                <div class="footer-bottom-compact">
+                    <span>漏 2026 Atom Guy</span>
+                    <a href="https://atomguygg.github.io/atomguy/" class="footer-terminal-link-compact">
+                        <i class="fas fa-terminal"></i> Terminal
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div> <div id="ig-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Hold up! 馃洃</h3>
+            <p>Don't forget to follow me on Instagram for more epic reels and content!</p>
+            <div class="modal-buttons">
+                <a href="https://instagram.com/" target="_blank" class="btn-atomic btn-cyan" id="btn-ig-follow">
+                    <i class="fab fa-instagram"></i> Follow on Instagram
+                </a>
+                <button class="btn-atomic btn-yellow" id="btn-continue-link">
+                    Continue to Link <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Always start at top of page on reload
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-overlay');
+            if(loader) {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 1200); 
+            }
+        });
+
+        // Hero Photo Tilt on Scroll
+        let photoTilted = false;
+        const heroPhoto = document.querySelector('.hero-photo');
+
+        window.addEventListener('scroll', () => {
+            if (!photoTilted && window.scrollY > 5) {
+                if (heroPhoto) heroPhoto.classList.add('tilted');
+                photoTilted = true;
+            }
+        });
+
+        if(heroPhoto) {
+            heroPhoto.addEventListener('mouseenter', () => {
+                heroPhoto.classList.remove('tilted');
+            });
+            heroPhoto.addEventListener('mouseleave', () => {
+                if (photoTilted) {
+                    heroPhoto.classList.add('tilted');
+                }
+            });
+        }
+
+        // Highlight Parallax Effect
+        const highlights = document.querySelectorAll('.highlight');
+        const highlightData = new Map();
+
+        highlights.forEach((highlight, index) => {
+            const direction = index % 2 === 0 ? 'left' : 'right';
+            highlight.setAttribute('data-direction', direction);
+            highlightData.set(highlight, {
+                hasStarted: false,
+                startScroll: 0,
+                duration: 100,
+                direction: direction
+            });
+        });
+
+        function updateHighlights() {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            highlights.forEach(highlight => {
+                const rect = highlight.getBoundingClientRect();
+                const elementTop = rect.top + scrollY;
+                const data = highlightData.get(highlight);
+
+                const triggerPoint = scrollY + windowHeight * 0.8;
+
+                if (!data.hasStarted && triggerPoint >= elementTop) {
+                    data.hasStarted = true;
+                    data.startScroll = scrollY;
+                }
+
+                if (data.hasStarted) {
+                    const progress = Math.min(1, Math.max(0, (scrollY - data.startScroll) / data.duration));
+                    highlight.style.setProperty('--highlight-progress', `${progress * 100}%`);
+                }
+
+                if (data.hasStarted && scrollY < data.startScroll - 50) {
+                    data.hasStarted = false;
+                    highlight.style.setProperty('--highlight-progress', '0%');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateHighlights);
+        requestAnimationFrame(() => {
+            updateHighlights();
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        if(themeToggle) {
+            const icon = themeToggle.querySelector('i');
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            body.setAttribute('data-theme', currentTheme);
+            updateIcon(currentTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const theme = body.getAttribute('data-theme');
+                const newTheme = theme === 'light' ? 'dark' : 'light';
+
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+
+            function updateIcon(theme) {
+                if (theme === 'dark') {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+        }
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Smart Navbar Scroll
+        const navbar = document.querySelector('.navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.classList.add('navbar-hidden');
+            } else if (currentScroll < lastScroll) {
+                navbar.classList.remove('navbar-hidden');
+            }
+
+            const sections = document.querySelectorAll('section[id]');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (currentScroll >= sectionTop && currentScroll < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .timeline-item, .skill-box').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Matrix Typing Effect for Hero Greeting
+        const greetingElement = document.getElementById('hero-greeting');
+        if(greetingElement) {
+            const finalText = 'Hi there! 馃憢';
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*';
+
+            function matrixTypingEffect() {
+                let iterations = 0;
+                const interval = setInterval(() => {
+                    greetingElement.textContent = finalText
+                        .split('')
+                        .map((char, index) => {
+                            if (index < iterations) {
+                                return finalText[index];
+                            }
+                            if (char === ' ' || char === '馃憢') {
+                                return char;
+                            }
+                            return chars[Math.floor(Math.random() * chars.length)];
+                        })
+                        .join('');
+
+                    if (iterations >= finalText.length) {
+                        clearInterval(interval);
+                    }
+
+                    iterations += 1/3;
+                }, 50);
+            }
+            setTimeout(matrixTypingEffect, 500);
+        }
+
+        // Progress Bar Functionality
+        const progressBarFill = document.querySelector('.progress-bar-fill');
+        const checkpoints = document.querySelectorAll('.checkpoint');
+
+        function updateProgressBar() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / documentHeight) * 100;
+
+            if(progressBarFill) progressBarFill.style.width = progress + '%';
+
+            const sections = ['hero', 'about', 'experience', 'skills', 'contact'];
+            let activeIndex = 0;
+
+            sections.forEach((sectionId, index) => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= windowHeight / 2 && rect.bottom >= windowHeight / 2) {
+                        activeIndex = index;
+                    }
+                }
+            });
+
+            checkpoints.forEach((checkpoint, index) => {
+                if (index <= activeIndex) {
+                    checkpoint.classList.add('active');
+                } else {
+                    checkpoint.classList.remove('active');
+                }
+            });
+        }
+
+        checkpoints.forEach(checkpoint => {
+            checkpoint.addEventListener('click', () => {
+                const sectionId = checkpoint.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', updateProgressBar);
+        window.addEventListener('resize', updateProgressBar);
+        updateProgressBar();
+
+
+        // ==============================================
+        // NEW ATOMIC SEARCH ENGINE LOGIC
+        // ==============================================
+
+        // 1. The Database
+        const searchDatabase = {
+            "gta5": {
+                title: "Grand Theft Auto V",
+                description: "Drop into Los Santos and gear up for the next heist. Pushing PS5 hardware to its absolute limits.",
+                url: "https://telegram.me/+IdGF8FUVelMzY2Zl",
+                size: "85.9 GB",
+                type: "GAME_EXECUTABLE"
+            },
+            "fifa": {
+                title: "World Cup 2026 Prompt",
+                description: "Create epic FIFA World Cup 2026 scenes with legendary football action and championship glory. ⚽🏆",
+                url: "https://www.media.io/ai/explore/zone/world-cup-2026-prompt",
+                size: "ZERO",
+                type: "AI_PROMPTS"
+            },
+            "rdr2": {
+                title: "Red Dead Redemption 2",
+                description: "Saddle up outlaws. Experience the epic tale of life in America at the dawn of the modern age.",
+                url: "https://telegram.me/+cDLaN1tqmw44Zjk9",
+                size: "120.0 GB",
+                type: "GAME_EXECUTABLE"
+            },
+            "forza5": {
+                title: "Forza Horizon 5",
+                description: "Rev up, racers. Blast through a breathtaking world of speed and freedom in the ultimate celebration of automotive culture.",
+                url: "https://telegram.me/+03TEoC4OkAJkMzk1",
+                size: "100.0 GB",
+                type: "GAME_EXECUTABLE"
+            },            
+            "messenger": {
+                title: "Messenger - abeto",
+                description: " A free, cozy browser game where you play as a gentle courier delivering mail on a miniature, cel-shaded planet",
+                url: "https://messenger.abeto.co/",
+                size: "ZERO",
+                type: "WEB_GAME"
+            },
+            "msg": {
+                title: "Messenger - abeto",
+                description: " A free, cozy browser game where you play as a gentle courier delivering mail on a miniature, cel-shaded planet",
+                url: "https://messenger.abeto.co/",
+                size: "ZERO",
+                type: "WEB_GAME"
+            },
+            "rdr1": {
+    title: "Red Dead Redemption",
+    description: "Saddle up and experience the legendary Wild West adventure that follows John Marston on an unforgettable journey of redemption.",
+    url: "https://telegram.me/+7bslrTcQqdVmOTZl",
+    size: "8.0 GB",
+    type: "GAME_EXECUTABLE"
+},
+           "rdrm": {
+    title: "Red Dead Redemption Mobile",
+    description: "Ride into the Wild West and experience John Marston's legendary journey with the complete single-player adventure and Undead Nightmare expansion.",
+    url: "https://dl.apkvision.org/red-dead-redemption/RDR-ROCKSTAR-v1.58.63226194-vanilla-full-apkvision.apks",
+    size: "2.7 GB",
+    type: "APK_EXECUTABLE"
+},
+         "auto": {
+                title: "Watch Autoembed",
+                description: "Stream the latest movies, TV shows, and anime with instant access and endless entertainment.",
+                url: "https://watch-v2.autoembed.app/",
+                size: "ZERO",
+                type: "MOVIE_WEB"
+            },   
+
+            "cineby": {
+                title: "CINEBY",
+                description: "Binge blockbuster movies, hit TV shows, and anime with seamless HD streaming and an ever-growing entertainment library.",
+                url: "https://www.cineby.at/",
+                size: "ZERO",
+                type: "MOVIE_WEB"
+            },  
+             "yts": {
+                title: "YTS.MX",
+                description: "Download high-quality movies in compact sizes, making it easy to build your collection without sacrificing quality.",
+                url: "https://yts.gg/home",
+                size: "ZERO",
+                type: "MOVIE_DOWNLOAD"
+            },  
+            
+        };
+
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.getElementById('btn-search');
+        const luckyBtn = document.getElementById('btn-lucky');
+        const resultsContainer = document.getElementById('search-results');
+        
+        // Modal variables
+        const modalOverlay = document.getElementById('ig-modal-overlay');
+        const continueBtn = document.getElementById('btn-continue-link');
+        const followIgBtn = document.getElementById('btn-ig-follow');
+        let pendingUrl = ""; 
+        let loadInterval; 
+
+        // 2. Main Search Function
+        function performSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+            if (query === "") return;
+
+            clearInterval(loadInterval); // Reset any existing loader
+
+            resultsContainer.style.display = 'block';
+
+            // Inject the exact Retro Loading Window from your image
+            resultsContainer.innerHTML = `
+                <div class="retro-loader-window">
+                    <div class="retro-header">
+                        <span id="retro-percent">Downloading 0%</span>
+                        <div class="retro-controls">
+                            <i class="fas fa-minus"></i>
+                            <i class="far fa-window-maximize"></i>
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="retro-body">
+                        <div class="retro-bar-container" id="retro-bar">
+                            ${'<div class="retro-segment"></div>'.repeat(15)}
+                        </div>
+                        <button class="retro-cancel">Cancel</button>
+                    </div>
+                </div>
+            `;
+
+            // Logic to animate the segments
+            const segments = document.querySelectorAll('.retro-segment');
+            const percentText = document.getElementById('retro-percent');
+            let currentSegment = 0;
+            const totalSegments = segments.length;
+
+            loadInterval = setInterval(() => {
+                if (currentSegment < totalSegments) {
+                    segments[currentSegment].style.opacity = '1';
+                    let pct = Math.floor(((currentSegment + 1) / totalSegments) * 100);
+                    percentText.innerText = `Downloading ${pct}%`;
+                    currentSegment++;
+                } else {
+                    clearInterval(loadInterval);
+                    
+                    // Once loaded, swap to the attractive card
+                    showResultCard(query);
+                }
+            }, 80); // Fills one block every 80 milliseconds
+        }
+
+        // 3. Show Attractive Result Function
+        function showResultCard(query) {
+            const result = searchDatabase[query];
+
+            if (result) {
+                // Attractive Hit Card
+                resultsContainer.innerHTML = `
+                    <div class="attractive-card">
+                        <div class="attractive-card-inner">
+                            <div class="card-badges">
+                                <span class="card-badge badge-verified"><i class="fas fa-fingerprint"></i> SECURE HIT</span>
+                                <span class="card-badge badge-outline">${result.type}</span>
+                            </div>
+                            <h3>${result.title}</h3>
+                            <p>${result.description}</p>
+                            
+                            <div class="card-metadata">
+                                <span><i class="fas fa-hdd"></i> Size: ${result.size}</span>
+                                <span style="color: #2a9d8f;"><i class="fas fa-check-circle"></i> Status: Verified</span>
+                            </div>
+
+                            <button onclick="openModal('${result.url}')" class="btn-atomic btn-cyan btn-launch">
+                                <span>ACCESS SECURE LINK</span> 
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                // Attractive 404 Error Card
+                resultsContainer.innerHTML = `
+                    <div class="attractive-card" style="border-color: #ff5555; box-shadow: 10px 10px 0 #ff5555;">
+                        <div class="attractive-card-inner">
+                            <div class="card-badges">
+                                <span class="card-badge badge-error">ERROR 404</span>
+                                <span class="card-badge badge-outline">TAG NOT FOUND</span>
+                            </div>
+                            <h3>Asset Missing</h3>
+                            <p>We couldn't locate that tag in the mainframe. Don't Be <strong>OVERSMART!</strong>.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // 4. Modal (Instagram Gate) Logic
+        window.openModal = function(url) {
+            pendingUrl = url; 
+            modalOverlay.style.display = 'flex'; 
+        };
+
+        continueBtn.addEventListener('click', () => {
+            modalOverlay.style.display = 'none'; 
+            window.open(pendingUrl, '_blank'); 
+        });
+
+        followIgBtn.addEventListener('click', () => {
+            setTimeout(() => {
+                modalOverlay.style.display = 'none';
+            }, 1000); 
+        });
+
+        // 5. Event Listeners for Search Actions
+        searchBtn.addEventListener('click', performSearch);
+        
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        // 6. NEW: "I'm Feeling Lucky" instant-load logic
+        luckyBtn.addEventListener('click', () => {
+            const keys = Object.keys(searchDatabase);
+            const randomKey = keys[Math.floor(Math.random() * keys.length)];
+            
+            // Auto-fill the search box with the random key
+            searchInput.value = randomKey;
+            
+            // Clear any active loader
+            clearInterval(loadInterval);
+            
+            // Display the result container and instantly show the card
+            resultsContainer.style.display = 'block';
+            showResultCard(randomKey);
+        });
+
+        // ==============================================
+        // AUTOMATIC AD SLIDESHOW ENGINE
+        // ==============================================
+
+        // Bypassed Adblockers by renaming variables/paths to 'promo'
+        // Using placehold.co images for testing to ensure they load properly
+        const leftPromos = [
+           { desktop: 'ads/1.jpg', mobile: 'ads/1h.jpg', link: 'https://wa.link/4cazcy' },
+           { desktop: 'ads/2.jpg', mobile: 'ads/2h.jpg', link: 'https://wa.link/4cazcy' },
+           { desktop: 'ads/3.webp', mobile: 'ads/3h.webp', link: 'https://discord.gg/PCfTh9VfT' }
+        ];
+
+        const rightPromos = [
+           { desktop: 'ads/1.jpg', mobile: 'ads/1h.jpg', link: 'https://wa.link/4cazcy' },
+           { desktop: 'ads/2.jpg', mobile: 'ads/2h.jpg', link: 'https://wa.link/4cazcy' },
+           { desktop: 'ads/3.webp', mobile: 'ads/3h.webp', link: 'https://discord.gg/PCfTh9VfT' }
+        ];
+
+        // --- Fisher-Yates shuffle ---
+        function shuffleArray(arr) {
+            const a = arr.slice();
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a;
+        }
+
+        // Shuffle both promo arrays independently so order is never uniform
+        let leftShuffled  = shuffleArray(leftPromos);
+        let rightShuffled = shuffleArray(rightPromos);
+        let leftPromoIndex   = 0;
+        let rightPromoIndex  = 0;
+
+        // --- Helper: apply a promo instantly (no fade) ---
+        function applyPromo(side) {
+            const isLeft = side === 'left';
+            const pool   = isLeft ? leftShuffled  : rightShuffled;
+            const idx    = isLeft ? leftPromoIndex   : rightPromoIndex;
+            const promo  = pool[idx % pool.length];
+
+            const desktop = document.getElementById(isLeft ? 'left-promo-desktop'  : 'right-promo-desktop');
+            const mobile  = document.getElementById(isLeft ? 'left-promo-mobile'   : 'right-promo-mobile');
+            const link    = document.getElementById(isLeft ? 'left-promo-link'     : 'right-promo-link');
+
+            desktop.src  = promo.desktop;
+            mobile.src   = promo.mobile;
+
+            // Update the link — each promo opens its own individual URL
+            link.href    = promo.link || '#';
+            link.setAttribute('data-promo', promo.desktop); 
+        }
+
+        // --- Show promos immediately on page load (no delay) ---
+        applyPromo('left');
+        applyPromo('right');
+
+        function cyclePromos() {
+            // Get Elements
+            const leftDesktop = document.getElementById('left-promo-desktop');
+            const leftMobile  = document.getElementById('left-promo-mobile');
+            const rightDesktop = document.getElementById('right-promo-desktop');
+            const rightMobile  = document.getElementById('right-promo-mobile');
+
+            // Trigger Fade Out
+            leftDesktop.classList.add('promo-fade-out');
+            leftMobile.classList.add('promo-fade-out');
+            rightDesktop.classList.add('promo-fade-out');
+            rightMobile.classList.add('promo-fade-out');
+
+            // Wait for fade out (0.6s), then pick a RANDOM next promo and fade back in
+            setTimeout(() => {
+                // Advance left to a random next slot (re-shuffle when exhausted)
+                leftPromoIndex++;
+                if (leftPromoIndex >= leftShuffled.length) {
+                    leftShuffled = shuffleArray(leftPromos);
+                    leftPromoIndex  = 0;
+                }
+                applyPromo('left');
+
+                // Advance right independently
+                rightPromoIndex++;
+                if (rightPromoIndex >= rightShuffled.length) {
+                    rightShuffled = shuffleArray(rightPromos);
+                    rightPromoIndex  = 0;
+                }
+                applyPromo('right');
+
+                // Trigger Fade In
+                leftDesktop.classList.remove('promo-fade-out');
+                leftMobile.classList.remove('promo-fade-out');
+                rightDesktop.classList.remove('promo-fade-out');
+                rightMobile.classList.remove('promo-fade-out');
+            }, 600); // 600 ms matches the CSS transition
+        }
+
+        // Run the slideshow every 10 seconds
+        setInterval(cyclePromos, 10000);
+
+    </script>
+</body>
+
+</html>
